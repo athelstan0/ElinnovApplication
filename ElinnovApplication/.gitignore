@@ -1,0 +1,47 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-generated files
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Dotnet CLI
+.project.lock.json
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Optional: IDE stuff
+*.dbmdl
+*.bak
+*.log
+
+# Rider IDE
+.idea/
+
+# Local test databases
+*.mdf
+*.ldf
+
+# Others
+*.pdb
+*.cache
+*.pidb
+*.svd
+*.userprefs
+
+# Auto-generated files
+Generated\_*
