@@ -62,6 +62,8 @@ class Program
                         Console.Write("Enter Product ID to remove: ");
                         if (int.TryParse(Console.ReadLine(), out int removeId))
                         {
+                            Console.Write("Removed ");
+                            inventory.GetProductName(removeId);
                             inventory.RemoveProduct(removeId);
                         }
                         else
@@ -127,7 +129,7 @@ class Program
                     break;
 
                 case "5":
-                    Console.WriteLine($"Total Inventory Value: {inventory.GetTotalValue():C}");
+                    Console.WriteLine($"Total Inventory Value: ${inventory.GetTotalValue()}");
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
                     // Console.Clear();
