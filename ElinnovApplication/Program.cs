@@ -52,6 +52,8 @@ class Program
                     });
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    //Console.Clear(); //I can't make console.clear work somehow...
+                    Console.WriteLine(new string('\n', 50));
                     break;
 
                 case "2":
@@ -73,6 +75,8 @@ class Program
                     }
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    // Console.Clear();
+                    Console.WriteLine(new string('\n', 50));
                     break;
 
                 case "3":
@@ -102,17 +106,23 @@ class Program
                     }
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    // Console.Clear();
+                    Console.WriteLine(new string('\n', 50));
                     break;
                 case "4":
                     inventory.ListProducts();
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    // Console.Clear();
+                    Console.WriteLine(new string('\n', 50));
                     break;
 
                 case "5":
                     Console.WriteLine($"Total Inventory Value: {inventory.GetTotalValue():C}");
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    // Console.Clear();
+                    Console.WriteLine(new string('\n', 50));
                     break;
 
                 case "6":
@@ -123,6 +133,8 @@ class Program
                     Console.WriteLine("Invalid option. Please try again.");
                     Console.WriteLine("Press Enter to Continue...");
                     Console.ReadLine();
+                    // Console.Clear();
+                    Console.WriteLine(new string('\n', 50));
                     break;
             }
         }
