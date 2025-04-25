@@ -10,6 +10,6 @@ class Product
 
     public override string ToString()
     {
-        return $"ID: {ProductId}, Name: {Name}, Quantity: {QuantityInStock}, Price: {Price:C}, Value: {TotalValue:C}";
+        return $"ID: {ProductId}, Name: {Name}, Quantity: {QuantityInStock}, Price: ${Price}, Value: ${TotalValue}";
     }
 }

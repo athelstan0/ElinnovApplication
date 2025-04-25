@@ -29,11 +29,20 @@ class InventoryManager
             Console.WriteLine("Product not found.");
             return;
         }
-
         var product = _products[productId];
         product.QuantityInStock = newQuantity;
         product.Price = newPrice;
         Console.WriteLine("Product updated successfully.");
+    }
+
+    public void GetProductName(int productId) //Method to get product name
+    {
+        if (!_products.ContainsKey(productId))
+        {
+            Console.WriteLine("Product not found.");
+            return;
+        }
+        Console.WriteLine("Product Name: " + _products[productId].Name);
     }
 
     public void ListProducts() //Method to list products

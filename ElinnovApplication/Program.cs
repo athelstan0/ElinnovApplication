@@ -85,6 +85,7 @@ class Program
                         Console.Write("Enter Product ID to update: ");
                         if (int.TryParse(Console.ReadLine(), out int updateId))
                         {
+                            inventory.GetProductName(updateId);
                             Console.Write("Enter new quantity: ");
                             if (int.TryParse(Console.ReadLine(), out int newQty))
                             {
