@@ -4,7 +4,7 @@ using System.Globalization;
 
 class Program
 {
-    static void Main()
+    static void Main() // This is the main method where the program starts
     {
         var inventory = new InventoryManager();
         bool exit = false;
@@ -88,7 +88,15 @@ class Program
                             Console.Write("Enter new quantity: ");
                             if (int.TryParse(Console.ReadLine(), out int newQty))
                             {
-                                inventory.UpdateProduct(updateId, newQty);
+                                Console.Write("Enter new price: ");
+                                if (decimal.TryParse(Console.ReadLine(), out decimal newPrice))
+                                {
+                                    inventory.UpdateProduct(updateId, newQty, newPrice);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid price. Please enter a valid decimal number.");
+                                }
                             }
                             else
                             {

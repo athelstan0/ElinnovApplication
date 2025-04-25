@@ -2,7 +2,7 @@ class InventoryManager
 {
     private Dictionary<int, Product> _products = new();
 
-    public void AddProduct(Product product)
+    public void AddProduct(Product product) //Method to add a product
     {
         if (_products.ContainsKey(product.ProductId))
         {
@@ -14,7 +14,7 @@ class InventoryManager
         Console.WriteLine("Product added successfully.");
     }
 
-    public void RemoveProduct(int productId)
+    public void RemoveProduct(int productId) //Method to remove product
     {
         if (_products.Remove(productId))
             Console.WriteLine("Product removed successfully.");
@@ -22,7 +22,7 @@ class InventoryManager
             Console.WriteLine("Product not found.");
     }
 
-    public void UpdateProduct(int productId, int newQuantity)
+    public void UpdateProduct(int productId, int newQuantity, decimal newPrice) //Method to update product
     {
         if (!_products.ContainsKey(productId))
         {
@@ -32,6 +32,7 @@ class InventoryManager
 
         var product = _products[productId];
         product.QuantityInStock = newQuantity;
+        product.Price = newPrice;
         Console.WriteLine("Product updated successfully.");
     }
 
