@@ -32,7 +32,7 @@ class Program
                         Console.Write("Enter Quantity: ");
                         if (int.TryParse(Console.ReadLine(), out quantity) && quantity >= 0)
                             break;
-                        Console.WriteLine("Quantity must not be negative.");
+                        Console.WriteLine("Quantity must be a positive number.");
                     }
 
                     decimal price;
@@ -41,7 +41,7 @@ class Program
                         Console.Write("Enter Price: ");
                         if (decimal.TryParse(Console.ReadLine(), NumberStyles.Any, CultureInfo.InvariantCulture, out price) && price >= 0)
                             break;
-                        Console.WriteLine("Price must not be negative.");
+                        Console.WriteLine("Price must be a positive number.");
                     }
 
                     inventory.AddProduct(new Product
@@ -50,30 +50,69 @@ class Program
                         QuantityInStock = quantity,
                         Price = price
                     });
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
 
                 case "2":
-                    Console.Write("Enter Product ID to remove: ");
-                    int removeId = int.Parse(Console.ReadLine() ?? "0");
-                    inventory.RemoveProduct(removeId);
+                    try
+                    {
+                        Console.Write("Enter Product ID to remove: ");
+                        if (int.TryParse(Console.ReadLine(), out int removeId))
+                        {
+                            inventory.RemoveProduct(removeId);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid product ID. Please enter a valid integer.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
 
                 case "3":
-                    Console.Write("Enter Product ID to update: ");
-                    int updateId = int.Parse(Console.ReadLine() ?? "0");
-
-                    Console.Write("Enter new quantity: ");
-                    int newQty = int.Parse(Console.ReadLine() ?? "0");
-
-                    inventory.UpdateProduct(updateId, newQty);
+                    try
+                    {
+                        Console.Write("Enter Product ID to update: ");
+                        if (int.TryParse(Console.ReadLine(), out int updateId))
+                        {
+                            Console.Write("Enter new quantity: ");
+                            if (int.TryParse(Console.ReadLine(), out int newQty))
+                            {
+                                inventory.UpdateProduct(updateId, newQty);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid quantity. Please enter a valid integer.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid product ID. Please enter a valid integer.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
-
                 case "4":
                     inventory.ListProducts();
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
 
                 case "5":
                     Console.WriteLine($"Total Inventory Value: {inventory.GetTotalValue():C}");
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
 
                 case "6":
@@ -82,10 +121,11 @@ class Program
 
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
+                    Console.WriteLine("Press Enter to Continue...");
+                    Console.ReadLine();
                     break;
             }
         }
-
         Console.WriteLine("Exiting... Goodbye!");
     }
 }

@@ -24,15 +24,15 @@ class InventoryManager
 
     public void UpdateProduct(int productId, int newQuantity)
     {
-        if (_products.TryGetValue(productId, out var product))
-        {
-            product.QuantityInStock = newQuantity;
-            Console.WriteLine("Product updated successfully.");
-        }
-        else
+        if (!_products.ContainsKey(productId))
         {
             Console.WriteLine("Product not found.");
+            return;
         }
+
+        var product = _products[productId];
+        product.QuantityInStock = newQuantity;
+        Console.WriteLine("Product updated successfully.");
     }
 
     public void ListProducts()
