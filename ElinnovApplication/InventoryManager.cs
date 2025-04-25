@@ -36,7 +36,7 @@ class InventoryManager
         Console.WriteLine("Product updated successfully.");
     }
 
-    public void ListProducts()
+    public void ListProducts() //Method to list products
     {
         if (_products.Count == 0)
         {
@@ -50,7 +50,7 @@ class InventoryManager
         }
     }
 
-    public decimal GetTotalValue()
+    public decimal GetTotalValue() //Method to get total value
     {
         decimal total = 0;
         foreach (var product in _products.Values)
